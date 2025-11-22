@@ -5,10 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# ---------------------------------------------
-#  STRING MATCHING ALGORITHMS (Naive + KMP)
-# ---------------------------------------------
-
 def naive_search(text, pattern):
     positions = []
     N, M = len(text), len(pattern)
@@ -60,10 +56,7 @@ def kmp_search(text, pattern):
                 i += 1
     return positions
 
-
-# ---------------------------------------------
 #  TEMPLATE MATCHING (OpenCV)
-# ---------------------------------------------
 def load_logo_templates(folder="logos"):
     templates = {}
     if not os.path.isdir(folder):
@@ -122,9 +115,7 @@ def detect_logos(frame, templates, threshold=0.7):
     return frame
 
 
-# ---------------------------------------------
 #  SPEED TEST FOR NAIVE vs KMP
-# ---------------------------------------------
 def compare_algorithms():
     text = "A" * 200000 + "B"
     pattern = "A" * 999 + "B"
@@ -150,9 +141,7 @@ def compare_algorithms():
     plt.show()
 
 
-# ---------------------------------------------
 #  PROCESS IMAGE FOLDER
-# ---------------------------------------------
 def process_image_folder(folder="images"):
     templates = load_logo_templates()
 
@@ -182,9 +171,8 @@ def process_image_folder(folder="images"):
     cv2.destroyAllWindows()
 
 
-# ---------------------------------------------
+
 #  WEBCAM STREAM
-# ---------------------------------------------
 def webcam_mode():
     templates = load_logo_templates()
 
@@ -217,9 +205,7 @@ def webcam_mode():
         cv2.destroyAllWindows()
 
 
-# ---------------------------------------------
 #  MAIN MENU
-# ---------------------------------------------
 def main():
     print("\n====== BRAND LOGO RECOGNITION PROJECT ======")
     print("1. Process Image Folder")
